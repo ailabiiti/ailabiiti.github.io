@@ -96,11 +96,26 @@
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-    margin-left: 30px;
+    margin-left: 18px;
     margin-top: 5px;
 }
- 
+
 @keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }    
+}	
+
+.floatingg {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}	
+ 
+@keyframes floatingg {
     0% { transform: translate(0,  0px); }
     50%  { transform: translate(0, 15px); }
     100%   { transform: translate(0, -0px); }    
@@ -381,7 +396,7 @@ text-align: justify;
 
 	
          <div class="card__container">
-            <article class="card__article floating" style="animation-duration: 3s;">
+            <article class="card__article floatingg" style="animation-duration: 3s;">
                <div class="card__scale-1"></div>
                <div class="card__scale-2"></div>
 
@@ -405,7 +420,7 @@ text-align: justify;
                </div>
             </article>
    
-            <article class="card__article card__orange floating" style="animation-duration: 5s;">
+            <article class="card__article card__orange floatingg" style="animation-duration: 5s;">
                <div class="card__scale-1"></div>
                <div class="card__scale-2"></div>
 
@@ -429,7 +444,7 @@ text-align: justify;
                </div>
             </article>
    
-            <article class="card__article card__green  floating" style="animation-duration: 4s;">
+            <article class="card__article card__green  floatingg" style="animation-duration: 4s;">
                <div class="card__scale-1"></div>
                <div class="card__scale-2"></div>
 
