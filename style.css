@@ -1,0 +1,194 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+
+/* Timeline */
+.timeline {
+  position: relative;
+  top:250px;
+  max-width: 1800px;
+  margin: 100px auto;
+  display: flex; /* Flex container for horizontal layout */
+  justify-content: space-between;
+}
+
+/* Contain */
+.contain {
+  padding: 10px;
+  width:90%;
+  position: relative;
+  flex: 1; /* Make each contain take equal space */
+  
+  opacity: 0;
+  text-align: center; /* Center text */
+  transition: opacity 1s linear;
+}
+
+.contain.in-view{
+  animation: fadeIn 1s linear forwards;
+}
+
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation delay for each item */
+.contain:nth-child(1) {
+  animation-delay: 0s;
+}
+.contain:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.contain:nth-child(3) {
+  animation-delay: 1.4s;
+}
+.contain:nth-child(4) {
+  animation-delay: 2.1s;
+}
+.contain:nth-child(5) {
+  animation-delay: 2.8s;
+}
+.contain:nth-child(6) {
+  animation-delay: 3.5s;
+}
+
+
+
+
+
+/* Text Box */
+.text-box {
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+
+
+.l-contain-arrow{
+  height: 0;
+  width: 0;
+  position: absolute;
+  left:47%;
+  z-index: -1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid #fff;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  top: -15px;
+}
+
+
+
+.r-contain-arrow{
+  height: 0;
+  width: 0;
+  position: absolute;
+  left:46%;
+  z-index: -1;
+  border-top: 15px solid #fff;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  top: 114px;
+}
+
+
+/* Timeline line */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 100%; /* Horizontal line */
+  height: 6px;
+  background: #fff;
+  top: 50%; /* Center the line vertically */
+  left: 0;
+  animation: moveline 4.5s linear forwards;
+  z-index:-1;
+}
+
+
+@keyframes moveline{
+  0% {
+    width: 0;
+  }
+  100%{
+    width:100%;
+  }
+}
+
+
+/* Positioning for `left-contain` */
+.left-contain {
+  top:120px; /* Position below the horizontal line */
+}
+
+.left-contain img {
+  position: absolute;
+  height:40px;
+  width:40px;
+  top:-35%;
+  bottom:0%;
+  left: 45.3%;  
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Positioning for `right-contain` */
+.right-contain {
+  top: -119px; /* Position above the horizontal line */
+}
+
+.right-contain img {
+  position: absolute;
+  height:40px;
+  width:40px;
+  border-radius: 50%;
+  top: 125%; /* Align image with the horizontal line */
+  left: 52%; /* Center image horizontally */
+  transform: translateX(-50%) translateY(-50%); /* Center the image */
+  z-index: 1;
+}
+
+
+
+
+
+/* Media Query */
+@media screen and (max-width: 600px) {
+  .timeline {
+    flex-direction: column;
+  }
+
+  .left-contain {
+    top: auto;
+    margin-top: 20px;
+  }
+
+  .right-contain {
+    top: auto;
+    margin-bottom: 20px;
+  }
+
+  .timeline::after {
+    width: 6px; /* Vertical line */
+    height: 100%;
+    left: 50%;
+    top: 0;
+  }
+}
